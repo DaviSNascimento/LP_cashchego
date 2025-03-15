@@ -1,0 +1,166 @@
+.header-content{
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    display: flex;
+    height: 70px;
+    width: 100vw;
+    margin: 0;
+    align-items: center;
+}
+.header-content h1{
+    font-family: EB Garamond;
+    font-weight: bold;
+    padding-left:10px;
+}
+.navbarlist{
+    display: flex;
+    flex-direction: row;
+    margin-left: 200px;
+    gap: 100px;
+    font-size: 1.2em;
+    font-weight: 700;
+
+}
+.navbarlist li a{
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.25s;
+}
+.navbarlist li a:hover{
+    color: #2a9462;
+}
+.main-session{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: black;
+}
+.view-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 100px 20px 0 20px ;
+}
+.text-deco p{
+    padding: 0;
+    margin: 0;
+    font-size: 3.5em;
+    font-weight: 800;
+    font-family: Playfair;
+    font-style: italic;
+}
+#img-logo{
+
+    border-radius: 50%;
+    padding: 0;
+    width: 400px;
+    /* background-color: red; */
+}
+#btn-saiba{
+    display: flex;
+    align-self: center;
+    background-color: rgba(255, 0, 0, 0);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 16px;
+    margin: 50px 200px;
+
+
+}
+#btn-saiba span{
+    /* background-color: #165739;
+    box-shadow:  0 0  15px 10px #165739; */
+    padding: 0;
+    border-radius: 100%;
+}
+#btn-saiba span:hover{
+    background-color: #165739;
+    color: antiquewhite;
+    box-shadow:  0 0  25px 20px #165739;
+    transition: box-shadow 1.0s ease, background-color 1.0s ease;
+}
+.main-session #btn-saiba{
+    margin-top: 200px;
+}
+.sobrenos-session{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #5d675b96;
+}
+
+.sobrenos-session h2{
+    display: flex;
+    align-self: flex-start;
+    margin: 40px 0 0 40px;
+    font-size: 3.5em;
+    font-weight: 800;
+    font-family: Playfair;
+    font-style: italic;
+    padding: 0;
+}
+.sobrenos-text-container{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+
+    
+}
+.sobrenos-session p{
+    display: flex;
+    align-self: center;
+    margin-left: 50px;
+    font-size: 1.5em;
+    font-weight: 500;
+    font-family: nunito;
+    text-align: justify;
+    width: 50%;
+    padding: 0;
+}
+.sobrenos-session img{
+    display: flex;
+    align-self: center;
+    width:600px;
+}
+.comofunc-session{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #F7F4EF;
+    color: #333333;
+}
+.comofunc-session h2{
+    display: flex;
+    align-self: flex-start;
+    margin: 20px 0 0 20px;
+    font-size: 3.0em;
+    font-weight: 700;
+    font-family: Playfair;
+    font-style: italic;
+    padding: 0;
+}
+.comofunc-itens{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: flex-start;
+    text-align: justify;
+    gap: 80px;
+    margin: 20px;
+}
+.cf-item0, .cf-item1, .cf-item2{
+    width: 400px;
+    color: #F7F4EF;
+    background-color: black;
+}
+.comofunc-itens img{
+    width: 400px;
+}
