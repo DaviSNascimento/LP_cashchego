@@ -56,7 +56,25 @@
     padding: 0;
     width: 400px;
     /* background-color: red; */
+}#btn-cta{
+    display: flex;
+    align-self: flex-end;
+    background-color:#cc8e06;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+    padding: 15px 60px;
+    font-size: 20px;
+    margin: 10px 16% 0;
 }
+#btn-cta:hover{
+    background-color: #165739;
+    transition: background-color 0.3s ease-in-out;
+}
+
 #btn-saiba{
     display: flex;
     align-self: center;
@@ -69,7 +87,7 @@
     border-radius: 50%;
     padding: 0;
     font-size: 16px;
-    margin: 50px 200px;
+    margin: 0px 200px;
 
 
 }
@@ -86,7 +104,7 @@
     transition: box-shadow 1.0s ease, background-color 1.0s ease;
 }
 .main-session #btn-saiba{
-    margin-top: 200px;
+    margin-top: 100px;
 }
 .sobrenos-session{
     display: flex;
@@ -140,7 +158,7 @@
 .comofunc-session h2{
     display: flex;
     align-self: flex-start;
-    margin: 20px 0 0 20px;
+    margin: 70px 0 20px 60px;
     font-size: 3.0em;
     font-weight: 700;
     font-family: Playfair;
@@ -151,16 +169,84 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-content: flex-start;
+    align-content: center;
     text-align: justify;
-    gap: 80px;
-    margin: 20px;
+    gap: 40px;
+    margin: 0;
 }
 .cf-item0, .cf-item1, .cf-item2{
     width: 400px;
     color: #F7F4EF;
     background-color: black;
+
+}
+.cf-item0 h3,
+.cf-item1 h3,
+.cf-item2 h3{
+    font-family: playfair;
+    font-size: 2em;
+    margin: 0 0 0 10px;
+}
+.cf-item0 p,
+.cf-item1 p,
+.cf-item2 p{
+    font-family: nunito;
+    font-size: 1.2em;
+    margin: 20px;
+    line-height: 1.2;
+    text-align: justify;
 }
 .comofunc-itens img{
     width: 400px;
+
+}
+.prova-session{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color:#333333;
+    color: #F7F4EF;
+}
+.prova-container{
+    display: flex;
+    flex-direction: column;
+    justify-self:flex-start;
+    align-self: center;
+}
+.prova-container h3{
+    font-family: playfair;
+    font-size: 3em;
+    margin: 70px 0 0px;
+    font-weight: 700;
+    font-style: italic;
+    color: #F7F4EF;
+}
+.prova-container p{
+    font-family: nunito;
+    font-size: 1.2em;
+    margin: 0 0 40px;
+    line-height: 1.2;
+    text-align: justify;
+    color: #F7F4EF;
+}
+
+.cta-session{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #382d19;
+}
+
+.footer-session{
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    background-color: coral;
+}
+.footer-container{
+    display: flex;
+    justify-content: center;
+    font-size: 0.7em;
+    margin: 0;
+    background: #165739;
 }
