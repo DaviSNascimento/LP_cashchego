@@ -1,14 +1,15 @@
 import { } from 'react'
 import './App.css'
+import Carrossel from './components/carrossel'
 
 function App() {
 
   return (
     <>
-      <div className='header-content'>
+      <div className='header-content ixed top-0 left-0 w-full z-50 bg-black'>
         <h1><span style={{ color: "#165739" }}>Cash</span><span style={{ color: "#cc8e06" }}>Chego</span></h1>
         <ul className='navbarlist'>
-          <li><a href="http://" target="_blank" rel="noopener noreferrer" style={{color:"#cc8e06"}}>Acessar</a></li>
+          <li><a href="http://" target="_blank" rel="noopener noreferrer" style={{ color: "#cc8e06" }}>Acessar</a></li>
           <li><a href="http://" target="_blank" rel="noopener noreferrer">Sobre Nós</a></li>
           <li><a href="http://" target="_blank" rel="noopener noreferrer">Contato</a></li>
           <li><a href="http://" target="_blank" rel="noopener noreferrer">Documentação</a></li>
@@ -66,16 +67,30 @@ function App() {
         </div>
       </div>
       <div className='prova-session'>
-      <div className='prova-container'>
+        <div className='prova-container'>
           <h3>O que os Clientes acham.</h3>
-          <p>Quer mais informações sobre CashChego? ou entre em contato conosco.</p>
+          <Carrossel />
+          <div className='carrossel-container'></div>
         </div>
       </div>
-      <div className='cta-session'>
-
+      <div className='cta-session justify-center'>
+        <div className="bg-gradient-to-t from-black to-yellow-500 text-white py-16 px-6 text-center rounded-lg shadow-lg max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Transforme sua experiência hoje mesmo!
+          </h2>
+          <p className="text-lg md:text-xl mb-6">
+            Junte-se a centenas de pessoas que já estão aproveitando essa solução incrível. Não perca tempo!
+          </p>
+          <a
+            href="#"
+            className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-100 transition-all"
+          >
+            Quero Começar Agora 🚀
+          </a>
+        </div>
       </div>
       <div className='footer-session'>
-      <h2>Entre em Contato</h2>
+        <h2>Entre em Contato</h2>
       </div>
       <div className='footer-container'>
         <p>�� 2025 CashChego DanSystems. Todos os direitos reservados.</p>
