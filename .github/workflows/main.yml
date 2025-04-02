@@ -1,18 +1,25 @@
-name: syhunt test
-on:
-  push:
-    branches:
-      - main
+name: Security Scan  # Nome do seu pipeline
+
+on: [push]  # Roda automaticamente quando você faz git push
+
 jobs:
-  build:
-    runs-on: [self-hosted, Windows, X64]
+  sast:  # Análise estática (SAST) com Syhunt
+    runs-on: ubuntu-latest  # Roda em um servidor Linux
     steps:
-      - uses: actions/checkout@v2
-      - run: Start-CodeScan -pfcond 'medium' -output 'report.pdf'
-      - name: 'Syhunt Report'
-        uses: actions/upload-artifact@v2
-        if: failure()
+      - uses: actions/checkout@v3  # Baixa seu código
+      - name: Run Syhunt SAST
+        uses: syhunt/github-action@main  # Usa a ação do Syhunt
         with:
-         name: syhunt-report
-         path: report.pdf
-         if-no-files-found: error
+          api-key: ${{ secrets.SYHUNT_API_KEY }}  # Chave de API (vamos configurar)
+          target: ./  # Escaneia todo o repositório
+
+  dast:  # Análise dinâmica (DAST) com OWASP ZAP
+    runs-on: ubuntu-latest
+    needs: [sast]  # Só roda depois do SAST
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run OWASP ZAP Scan
+        uses: zaproxy/action-full-scan@v0.10.0  # Ação do ZAP
+        with:
+          target: 'http://localhost:3000'  # Altere para sua URL
+          # Se sua página não estiver online, use uma ação para subir um servidor local
