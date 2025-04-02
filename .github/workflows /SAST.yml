@@ -1,0 +1,5 @@
+- name: Run Syhunt SAST
+  uses: syhunt/github-action@main
+  with:
+    api-key: ${{ secrets.SYHUNT_API_KEY }}
+    target: ./  # Analisa todo o repositório
