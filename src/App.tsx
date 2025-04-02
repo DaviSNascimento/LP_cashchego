@@ -1,35 +1,14 @@
 import { } from 'react'
 import './App.css'
 import Carrossel from './components/carrossel'
-
+import Header from './components/header';
+import HeroSession from './components/hero';
 function App() {
 
   return (
     <>
-      <div className='header-content ixed top-0 left-0 w-full z-50 bg-black'>
-        <h1><span style={{ color: "#165739" }}>Cash</span><span style={{ color: "#cc8e06" }}>Chego</span></h1>
-        <ul className='navbarlist'>
-          <li><a href="http://" target="_blank" rel="noopener noreferrer" style={{ color: "#cc8e06" }}>Acessar</a></li>
-          <li><a href="http://" target="_blank" rel="noopener noreferrer">Sobre Nós</a></li>
-          <li><a href="http://" target="_blank" rel="noopener noreferrer">Contato</a></li>
-          <li><a href="http://" target="_blank" rel="noopener noreferrer">Documentação</a></li>
-        </ul>
-      </div>
-      <div className='main-session'>
-
-        <div className='view-content'>
-          <div className='text-deco'>
-            <p>
-              <span style={/*offwhite*/{ color: "off-white" }}>Consulte,</span>
-              <span style={/*Green*/{ color: "#165739" }}> Analise,</span>
-              <span style={/*yellow*/{ color: "#cc8e06" }}> Inspire.</span>
-            </p>
-          </div>
-          <img id='img-logo' src="/5-removebg-preview.png" alt="CashCego Logo" />
-        </div>
-        <button id='btn-cta'>Acesse Agora.</button>
-        <button id='btn-saiba'><span>Saiba Mais</span></button>
-      </div>
+    <Header/>
+    <HeroSession/>
       <div className='sobrenos-session'>
         <h2>Sobre Nós</h2>
         <div className='sobrenos-text-container'>

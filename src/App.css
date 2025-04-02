@@ -1,27 +1,11 @@
 @import "tailwindcss";
 
-.header-content{
-    background-color: rgb(0, 0, 0);
-    position: fixed;
-    display: flex;
-    height: 70px;
-    width: 100vw;
-    margin: 0;
-    align-items: center;
-}
 .header-content h1{
     font-family: EB Garamond;
-    font-weight: bold;
-    padding-left:10px;
 }
 .navbarlist{
-    display: flex;
-    flex-direction: row;
-    margin-left: 200px;
-    gap: 100px;
     font-size: 1.2em;
     font-weight: 700;
-
 }
 .navbarlist li a{
     color: #ffffff;
