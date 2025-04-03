@@ -21,16 +21,16 @@ export default function Carrossel() {
 
     return (
         <div className="flex flex-col items-center justify-center w-full h-100 max-w-lg mx-auto p-6">
-            <div className="w-200">
+            <div className="min-w-250 min-h-82 flex-1 content-center">
                 <motion.div
                     key={testimonials[currentIndex].id}
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -50 }}
                     transition={{ duration: 1 }}
-                    className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 text-center"
+                    className="min-h-80 dark:bg-gray-800 shadow-lg rounded-lg p-6 content-center "
                 >
-                    <p className="text-lg italic">"{testimonials[currentIndex].text}"</p>
+                    <p className="italic">"{testimonials[currentIndex].text}"</p>
                     <h5 className="mt-4 font-semibold">— {testimonials[currentIndex].name}</h5>
                 </motion.div>
             </div>
