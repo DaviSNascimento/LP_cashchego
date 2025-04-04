@@ -3,32 +3,27 @@ import './App.css'
 import Carrossel from './components/carrossel'
 import Header from './components/header';
 import HeroSession from './components/hero';
+import SobreNos from './components/sobreNos';
 function App() {
 
   return (
     <>
     <Header/>
     <HeroSession/>
-      <div className='sobrenos-session'>
-        <h2>Sobre Nós</h2>
-        <div className='sobrenos-text-container'>
-          <p>Somos uma Startup que busca promover mais acessibilidade e velocidade no gerenciamento de pequenas empresas e negócios. Utilizando um sistema de controle de fluxo de caixa e com acessibilidade de nossa Inteligência Artificial, a Hanna AI. Nossa Assistente Virtual irá ajudar a desenvolver as principais funções, além de analisar dados, ler tabelas e exibir relatórios.</p>
-          <img src="aperto-de-mao2.jpg" alt="Aperto de mão" />
-        </div>
-      </div>
+    <SobreNos/>
       <div className='comofunc-session'>
         <h2>Como Funciona</h2>
         <div className='comofunc-container'>
           <div className='comofunc-itens'>
             <div className='cf-item0'>
-              <img src="/src/assets/compra-bolsa.jpg" alt="Ícone Consulta" />
+              <img src="/compra-bolsa.jpg" alt="Ícone Consulta" />
               <h3>Consulta</h3>
               <p>Consulte informações e otimize seu tempo com nossa <span style={{
                 color: "#cc8e06", fontWeight: "bold"
               }}>Hanna AI Assistente</span>. </p>
             </div>
             <div className='cf-item1'>
-              <img src="/src/assets/analise-tablet.jpg" alt="Ícone Análise" />
+              <img src="/analise-tablet.jpg" alt="Ícone Análise" />
               <h3>Análise</h3>
               <p>Utilize nossas ferramentas para analisar <span style={{
                 color: "#cc8e06", fontWeight: "bold"
@@ -36,7 +31,7 @@ function App() {
             </div>
 
             <div className='cf-item2'>
-              <img src="/src/assets/planta-dinheiro.jpg" alt="Ícone Inspirar" />
+              <img src="/planta-dinheiro.jpg" alt="Ícone Inspirar" />
               <h3>Inspirar</h3>
               <p>Crie uma estratégia de negócios e visualize com base em dados e insights da <span style={{
                 color: "#cc8e06", fontWeight: "bold"

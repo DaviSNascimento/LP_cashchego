@@ -92,42 +92,26 @@
 .main-session #btn-saiba{
     margin-top: 100px;
 }
-.sobrenos-session{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #5d675b96;
-}
-
 .sobrenos-session h2{
-    display: flex;
-    align-self: flex-start;
-    margin: 40px 0 0 40px;
-    font-size: 3.5em;
-    font-weight: 800;
     font-family: Playfair;
-    font-style: italic;
-    padding: 0;
 }
 .sobrenos-text-container{
-    display: flex;
+    /* display: flex;
     flex: 1;
     flex-direction: row;
     justify-content: space-between;
     align-content: flex-start;
 
-    
+     */
 }
 .sobrenos-session p{
-    display: flex;
-    align-self: center;
-    margin-left: 50px;
+/*
     font-size: 1.5em;
-    font-weight: 500;
+    font-weight: 500; */
     font-family: nunito;
-    text-align: justify;
+    /* text-align: justify;
     width: 50%;
-    padding: 0;
+    padding: 0; */
 }
 .sobrenos-session img{
     display: flex;
