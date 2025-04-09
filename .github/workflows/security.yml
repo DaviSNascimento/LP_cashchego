@@ -1,0 +1,27 @@
+name: Security Scan
+on: [push]  # Executa ao fazer "git push"
+
+jobs:
+  sast:  # Análise estática (SAST com Syhunt)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3  # Baixa seu código
+      - name: Run Syhunt SAST
+        uses: syhunt/github-action@main
+        with:
+          api-key: ${{ secrets.SYHUNT_API_KEY }}  # Configuraremos depois
+          target: ./  # Escaneia toda a pasta do projeto
+
+  dast:  # Análise dinâmica (DAST com OWASP ZAP)
+    runs-on: ubuntu-latest
+    needs: [sast]  # Só roda depois do SAST
+    steps:
+      - uses: actions/checkout@v3
+      - name: Start Local Server  # Sobe sua página para teste
+        run: |
+          npm install -g http-server
+          http-server ./ -p 3000 &
+      - name: Run OWASP ZAP Scan
+        uses: zaproxy/action-baseline@v0.10.0
+        with:
+          target: 'http://localhost:3000'  # Altere se tiver um domínio
