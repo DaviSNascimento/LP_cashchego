@@ -55,10 +55,10 @@ jobs:
         continue-on-error: true  # Continua mesmo se encontrar vulnerabilidades
         
       - name: Upload ZAP Report
-        uses: actions/upload-artifact@v3
         if: always()
+        uses: actions/upload-artifact@v3
         with:
-          name: zap-report
+          name: zap-security-report
           path: |
             report_json.json
             report_md.md
