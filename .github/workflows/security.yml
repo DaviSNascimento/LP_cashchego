@@ -1,27 +1,36 @@
 name: Security Scan
-on: [push]  # Executa ao fazer "git push"
+on: [push]
 
 jobs:
-  sast:  # Análise estática (SAST com Syhunt)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3  # Baixa seu código
-      - name: Run Syhunt SAST
-        uses: "D:\syhunt-community-7.0.10.3.exe" scan --target
-        with:
-          api-key: ${{ secrets.SYHUNT_API_KEY }}  # Configuraremos depois
-          target: ./  # Escaneia toda a pasta do projeto
-
-  dast:  # Análise dinâmica (DAST com OWASP ZAP)
-    runs-on: ubuntu-latest
-    needs: [sast]  # Só roda depois do SAST
+  sast:
+    runs-on: ubuntu-latest  # Note: Isso roda na nuvem do GitHub, não no seu runner local!
     steps:
       - uses: actions/checkout@v3
-      - name: Start Local Server  # Sobe sua página para teste
+      - name: Run Syhunt SAST
+        run: |
+          # Aqui você precisaria ter o Syhunt instalado no ambiente Ubuntu
+          # Como não é seu caso, vamos modificar para usar seu runner local
+          
+  # VAMOS MODIFICAR PARA USAR SEU RUNNER AUTO-HOSPEDADO
+  syhunt-sast:
+    runs-on: self-hosted  # Isso fará usar SEU runner local
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Syhunt from Pendrive
+        run: |
+          "D:\syhunt-community-7.0.10.3.exe" scan --target . --api-key=${{ secrets.SYHUNT_API_KEY }}
+        shell: cmd  # Usa o shell do Windows
+
+  dast:
+    runs-on: ubuntu-latest
+    needs: [syhunt-sast]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Start Local Server
         run: |
           npm install -g http-server
           http-server ./ -p 3000 &
       - name: Run OWASP ZAP Scan
         uses: zaproxy/action-baseline@v0.10.0
         with:
-          target: 'http://localhost:3000'  # Altere se tiver um domínio
+          target: 'http://localhost:3000'
