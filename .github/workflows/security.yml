@@ -26,10 +26,16 @@ jobs:
     needs: [syhunt-sast]
     steps:
       - uses: actions/checkout@v3
+      
       - name: Start Local Server
         run: |
-          npm install -g http-server
-          http-server ./ -p 3000 &
+          # Instala o http-server localmente (sem -g) e roda
+          npm install http-server
+          npx http-server ./ -p 3000 &
+          
+      - name: Wait for server to start
+        run: sleep 5  # Dá tempo para o servidor iniciar
+        
       - name: Run OWASP ZAP Scan
         uses: zaproxy/action-baseline@v0.10.0
         with:
