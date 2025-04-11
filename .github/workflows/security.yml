@@ -2,52 +2,52 @@ name: Security Scan
 on: [push]
 
 jobs:
-  # Análise Estática (SAST) - Rodando no seu computador
+  sast:
+    runs-on: ubuntu-latest  # Note: Isso roda na nuvem do GitHub, não no seu runner local!
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Syhunt SAST
+        run: |
+          # Aqui você precisaria ter o Syhunt instalado no ambiente Ubuntu
+          # Como não é seu caso, vamos modificar para usar seu runner local
+          
+  # VAMOS MODIFICAR PARA USAR SEU RUNNER AUTO-HOSPEDADO
   syhunt-sast:
-    runs-on: self-hosted  # Usa seu runner local
+    runs-on: self-hosted  # Isso fará usar SEU runner local
     steps:
-      # 1. Baixa o código do repositório
       - uses: actions/checkout@v3
-      
-      # 2. Executa a análise SAST com Syhunt
-      - name: Run Syhunt SAST Scan
+      - name: Run Syhunt from Pendrive
         run: |
-          "C:\Users\Davi Nascimento\Documents\Davi\02. Faculdade\5º Semestre\Cybersecurity\Syhunt\syhunt-hybrid.exe" scan --target . --api-key=${{ secrets.SYHUNT_API_KEY }} --output=sast-report.html
-        shell: cmd
-        
-      # 3. Envia o relatório (corrigido o caminho)
-      - name: Upload SAST Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: sast-report
-          path: |
-            sast-report.html  # Agora usando o nome exato do arquivo gerado
+          "C:\Users\Davi Nascimento\Documents\Davi\02. Faculdade\5º Semestre\Cybersecurity\Syhunt\Syhunt Community.lnk" scan --target . --api-key=${{ secrets.SYHUNT_API_KEY }} --output=sast-report.html
+        shell: cmd  # Usa o shell do Windows
+      
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with: 
+            name: sast-report
+            path: sast-report.html  # O Syhunt gera automaticamente
 
-  # Análise Dinâmica (DAST) - Teste da aplicação rodando
-  syhunt-dast:
+
+  dast:
     runs-on: self-hosted  # Usa seu runner local
-    needs: [syhunt-sast]  # Espera o SAST terminar
+    needs: [syhunt-sast]
     steps:
-      # 1. Baixa o código
       - uses: actions/checkout@v3
       
-      # 2. Inicia o servidor local (versão corrigida sem PowerShell)
-      - name: Start Web Server
+        # DAST (Teste da aplicação rodando)
+      - name: Start test server
         run: |
-          npm install http-server -g
-          start http-server ./ -p 3000
-          timeout /t 5 /nobreak > nul
+          yarn add http-server --dev  
+          yarn run http-server ./ -p 3000 &
+          sleep 5
+          
+      - name: Run Syhunt Dynamic Scan
+        run: |
+          "C:\Users\Davi Nascimento\Documents\Davi\02. Faculdade\5º Semestre\Cybersecurity\Syhunt\Syhunt Community.lnk" scan --target http://localhost:3000 --api-key=${{ secrets.SYHUNT_API_KEY }} --output=dast-report.html
         shell: cmd
         
-      # 3. Executa análise DAST com Syhunt
-      - name: Run Syhunt DAST Scan
-        run: |
-          "C:\Users\Davi Nascimento\Documents\Davi\02. Faculdade\5º Semestre\Cybersecurity\Syhunt\syhunt-dynamic.exe" scan --target http://localhost:3000 --output=dast-report.html
-        shell: cmd
-        
-      # 4. Envia o relatório DAST
-      - name: Upload DAST Report
-        uses: actions/upload-artifact@v3
+      - name: Upload report
+        uses: actions/upload-artifact@v4
         with:
           name: dast-report
-          path: dast-report.html  # Nome corrigido
+          path: report.html  # O Syhunt gera automaticamente
