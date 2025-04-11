@@ -18,24 +18,32 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run Syhunt from Pendrive
         run: |
-          "D:\syhunt-community-7.0.10.3.exe" scan --target . --api-key=${{ secrets.SYHUNT_API_KEY }}
+          ""C:\Users\Davi Nascimento\Documents\Davi\02. Faculdade\5º Semestre\Cybersecurity\Syhunt\Syhunt Community.lnk"" scan --target . --api-key=${{ secrets.SYHUNT_API_KEY }} --output=sast-report.html
         shell: cmd  # Usa o shell do Windows
+      
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with: 
+            name: sast-report
+            path: sast-report.html  # O Syhunt gera automaticamente
+
 
   dast:
     runs-on: self-hosted  # Usa seu runner local
     needs: [sast]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       
+        # DAST (Teste da aplicação rodando)
       - name: Start test server
         run: |
-          yarn add http-server --dev
+          yarn add http-server --dev  
           yarn run http-server ./ -p 3000 &
           sleep 5
           
       - name: Run Syhunt Dynamic Scan
         run: |
-          "D:\syhunt-dynamic\syhunt-dynamic.exe" scan --target http://localhost:3000 --api-key=${{ secrets.SYHUNT_API_KEY }}
+          ""C:\Users\Davi Nascimento\Documents\Davi\02. Faculdade\5º Semestre\Cybersecurity\Syhunt\Syhunt Community.lnk"" scan --target http://localhost:3000 --api-key=${{ secrets.SYHUNT_API_KEY }} --output=dast-report.html
         shell: cmd
         
       - name: Upload report
