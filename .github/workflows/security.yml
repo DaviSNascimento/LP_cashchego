@@ -16,7 +16,7 @@ jobs:
     runs-on: self-hosted  # Isso fará usar SEU runner local
     steps:
       - uses: actions/checkout@v3
-      - name: Run Syhunt from Pendrive
+      - name: Run Syhunt from local disk C 
         run: |
           "C:\Users\Davi Nascimento\Documents\Davi\02. Faculdade\5º Semestre\Cybersecurity\Syhunt\Syhunt Community.lnk" scan --target . --api-key=${{ secrets.SYHUNT_API_KEY }} --output=sast-report.html
         shell: cmd  # Usa o shell do Windows
