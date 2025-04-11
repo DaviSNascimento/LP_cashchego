@@ -1,0 +1,526 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Syhunt Scan Report</title>
+<link href="https://www.syhunt.net/static/reportv3/css/tabler.min.css" rel="stylesheet"/>
+<link href="https://www.syhunt.net/static/reportv3/css/tabler-flags.min.css" rel="stylesheet"/>
+<link href="https://www.syhunt.net/static/reportv3/css/tabler-payments.min.css" rel="stylesheet"/>
+<link href="https://www.syhunt.net/static/reportv3/css/tabler-vendors.min.css" rel="stylesheet"/>
+<link href="https://www.syhunt.net/static/reportv3/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<link href="https://www.syhunt.net/static/reportv3/fonts/feather2.css" rel="stylesheet" >
+<style>
+body { margin:0; }
+hr { border:0; color: #808080; background-color: #808080; height:1px; }
+
+a:link { color: #cb2b4a; }
+a:visited { color: #cc9999; }
+a:active { color: #cb2b4a;}
+a:hover { color: #cb2b4a;}
+
+.fnt_passed { color: #a5d233; font-weight:bold; }
+.fnt_failed { color: #cb2b4a; font-weight:bold; }
+.chart_left { width:50%;float:left; }
+.chart_right { width:50%;float:left; }
+.gi_left { width:80%;float:left;border-bottom:solid 1px white;}
+.gi_right { width:20%;float:left;border-bottom:solid 1px white; }
+.gi_column { background-color:#444444; color: white;}
+.gi_title { background-color:#e2e2e5; }
+.gi_passed { background-color:#a5d233; color:white; font-weight:bold; }
+.gi_failed { background-color:#cb2b4a; color:white; }
+.field { color:#3d424c }
+.important { background-color:#ffffaa;}
+.source { background-color:#e2e2e5; border: solid 1px #808080; padding:10px; overflow: auto;}
+.desc { color:black }
+.vuln_risk { border: solid 1px #808080; width:100px; height:15px; float:right;}
+.session_details { background-color:#e2e2e5; }
+.footer { background-color:#c7c7ff; }
+.notes { background-color:#ffffaa; }
+.host_title { background-color:#808080; color: white; font-weight:bold; }
+.scorebig { width:150px; color:white; }
+
+.tblist { border-collapse: collapse; border: 1px solid #808080; }
+.tblist thead, tfoot { background-color: #3d424c; color: white; }
+.tblist td, th { border: 1px solid rgb(190, 190, 190); padding: 5px 10px; text-align: center; }
+.tds_excellent { background-color: #006b3a; color:white; }
+.tds_good { background-color: #3bbf50; }
+.tds_fair { background-color: #ddcb00; }
+.tds_poor { background-color: #d98700; }
+.tds_verypoor { background-color: #fb5e25; }
+.tds_comingsoon { background-color: silver; }
+.tdvulncount { text-align: center; width:23%;font-size:260%;padding:10px; }
+.tdvulncountsep { width:6px }
+.tdvulncountsub { width:23%;font-size:130%;padding:10px; text-align: center; }
+
+#repcontent { padding:12px; width:100%;} 
+.roundrect { -moz-border-radius:10px; border-radius: 10px; padding:10px; }
+.ribbon {font-size: 140%;min-width:140px;padding:10px;font-weight:normal;}
+.vuln-title {font-size: 200%;}
+.report-title { color: #b8bbc1; float:right;padding-top:17px;padding-right:10px;}
+.section-title {font-size: 150%;}
+.vuln-cvss {font-size: 80%; color:silver}
+.bg-vuln-count { width:80px; }
+.syhunt-logo { min-width:229px;min-height:62px; }
+.keep-together { page-break-inside: avoid; }
+.break-before { page-break-before: always; }
+.break-after { page-break-after: always; }
+
+@media all and (min-width:0px) and (max-width: 568px) { .ribbon {margin-top:53px;} }
+
+@media print {
+ .noprint { display:none; }
+ #repcontent { width:100%;}
+}
+</style>
+</head>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<body>
+<div class="page">
+<header class="navbar navbar-expand-md navbar-dark">
+<div class="container-xl">
+<h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+<img src="https://www.syhunt.net/static/report/syhunt_logo_dark.png" class="navbar-brand-image syhunt-logo">
+<h2>Syhunt Scan Report</h2>
+</h1>
+</div>
+</header>
+<div id="repcontent">
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Scan Summary</h3>
+</div>
+<div class="card-body">
+<dl class="row sparrow">
+<dt class="col-5"><i class="fe fe-calendar"></i>&nbsp;Date:</dt>
+<dd class="col-7">Apr 11, 2025 10:03:30</dd>
+<dt class="col-5"><i class="fe fe-link"></i>&nbsp;Target URL:</dt>
+<dd class="col-7"><a href="" target="_out"></a></dd>
+<dt class="col-5"><i class="fe fe-folder"></i>&nbsp;Target Directory:</dt>
+<dd class="col-7">C:\Users\Davi Nascimento\Documents\Davi\02. Faculdade\5º Semestre\Startup_ProjectOne\LP\LandingPage_CashChego\</dd>
+<dt class="col-5"><i class="fe fe-crosshair"></i>&nbsp;Hunt Method:</dt>
+<dd class="col-7">Application Code Scan</dd>
+<dt class="col-5"><i class="fe fe-user"></i>&nbsp;License:</dt>
+<dd class="col-7">Community Edition</dd>
+<dt class="col-5"><i class="fe fe-file-text"></i>&nbsp;Report Template:</dt>
+<dd class="col-7">Standard </dd>
+</dl>
+</div>
+<div class="card-alert alert alert-success mb-0"><i class="fe fe-check-circle"></i>&nbsp;<span class="badge bg-success-lt">Syhunt is up-to-date.</span></div>
+</div>
+<br>
+<div class="card">
+<div class="card-body">
+<font class="fnt_failed">A total of 1 vulnerabilities were identified, as shown below.</font>
+<br><br><b>Note: 17 item(s) identified within specific files were considered similar instances of the same vulnerability and will be displayed within the first reported vulnerability entry.</b>
+</div>
+</div>
+<br>
+<div class="row row-cards">
+<div class="col-sm-3">
+<div class="card">
+<div class="card-body text-center">
+<div class="h2">High</div>
+<div class="display-3 font-weight-bold mb-3">0</div>
+<div class="progress progress-sm">
+<div class="progress-bar bg-red" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="card">
+<div class="card-body text-center">
+<div class="h2">Medium</div>
+<div class="display-3 font-weight-bold mb-3">0</div>
+<div class="progress progress-sm">
+<div class="progress-bar bg-orange" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="card">
+<div class="card-body text-center">
+<div class="h2">Low</div>
+<div class="display-3 font-weight-bold mb-3">0</div>
+<div class="progress progress-sm">
+<div class="progress-bar bg-yellow" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="card">
+<div class="card-body text-center">
+<div class="h2">Info</div>
+<div class="display-3 font-weight-bold mb-3">1</div>
+<div class="progress progress-sm">
+<div class="progress-bar bg-info" style="width: 100%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'Risk');
+data.addColumn('number', 'Total');
+data.addRows([
+['High',    0],
+['Medium',      0],
+['Low',  0],
+['Info', 1],
+]);
+var options = {
+width: 300, height: 240,
+title: "Vulnerabilities: 1",
+colors: ["#D00000","#D07C00","#D0D000","#3D80E2"]
+};
+
+var chart = new google.visualization.PieChart(document.getElementById("vulns_piechart_div"));
+chart.draw(data, options);
+}
+</script>
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+var data = new google.visualization.DataTable();
+data.addColumn("string", "Risk");
+data.addColumn("number", "High");
+data.addColumn("number", "Medium");
+data.addColumn("number", "Low");
+data.addColumn("number", "Info");
+data.addRows([
+["", 0,0,0,1],
+]);
+var options = {
+width: 400, height: 240,
+//title: "Vulnerabilities",
+colors: ["#D00000","#D07C00","#D0D000","#3D80E2"]
+};
+var chart = new google.visualization.ColumnChart(document.getElementById("vulns_colchart_div"));
+chart.draw(data, options);
+}
+</script>
+<div class="row row-cards">
+<div class="col-lg-6 col-xl-4">
+<div class="card"><div class="card-body"><div id="vulns_piechart_div"></div></div></div>
+</div>
+<div class="col-lg-6 col-xl-4">
+<div class="card"><div class="card-body"><div id="vulns_colchart_div"></div></div></div>
+</div>
+</div><br>
+<a name="host_1">&nbsp;</a>
+
+<br>
+<h1>Vulnerabilities</h1>
+<div class="progress progress-separated mb-3">
+<div class="progress-bar bg-red" role="progressbar" style="width: 0%" aria-label="High"></div>
+<div class="progress-bar bg-orange" role="progressbar" style="width: 0%" aria-label="Medium"></div>
+<div class="progress-bar bg-yellow" role="progressbar" style="width: 0%" aria-label="Low"></div>
+<div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-label="Info"></div>
+</div>
+<div class="row row-cards">
+<div class="col-md-6 col-xl-3">
+<div class="card card-sm">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col-auto">
+<span class="bg-red bg-vuln-count text-white avatar"><h1>0</h1></span>
+</div>
+<div class="col">
+<div class="font-weight-medium"><h3>High</h3></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xl-3">
+<div class="card card-sm">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col-auto">
+<span class="bg-orange bg-vuln-count text-white avatar"><h1>0</h1></span>
+</div>
+<div class="col">
+<div class="font-weight-medium"><h3>Medium</h3></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xl-3">
+<div class="card card-sm">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col-auto">
+<span class="bg-yellow bg-vuln-count text-white avatar"><h1>0</h1></span>
+</div>
+<div class="col">
+<div class="font-weight-medium"><h3>Low</h3></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xl-3">
+<div class="card card-sm">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col-auto">
+<span class="bg-info bg-vuln-count text-white avatar"><h1>1</h1></span>
+</div>
+<div class="col">
+<div class="font-weight-medium"><h3>Info</h3></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<div class="card break-after">
+<div class="card-body">
+<div id="table-default" class="table-responsive">
+<table class="table">
+<thead>
+<tr>
+<th><button class="table-sort" data-sort="sort-down"></button></th>
+<th><button class="table-sort" data-sort="sort-name">Vulnerability Name</button></th>
+<th><button class="table-sort" data-sort="sort-risk">Risk</button></th>
+</tr>
+</thead>
+<tbody class="table-tbody">
+<tr><td class="sort-down"><a href="#vuln_706F7369782E6A7320436F64652056756C6E2E6A726D"><i class="fe fe-chevron-down"></i> View</a></td><td class="sort-name">posix.js Hardcoded URI</td><td class="sort-risk">Info</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() { 
+const list = new List('table-default', {
+sortClass: 'table-sort',
+listClass: 'table-tbody',
+valueNames: [ 'sort-down', 'sort-name', 'sort-risk'] 
+});
+})
+</script>
+<a name="vuln_706F7369782E6A7320436F64652056756C6E2E6A726D">&nbsp;</a>
+<div class="card">
+<div class="card-body">
+<div class="ribbon bg-info">INFO</div>
+<div class="card-status-top bg-info"></div>
+<h1 class="card-title vuln-title">posix.js Hardcoded URI</h1>
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">Source Code File</div><div class="datagrid-content"><i class="fe fe-file text-red"></i>&nbsp; <a href="file:///C:\Users\Davi Nascimento\Documents\Davi\02. Faculdade\5º Semestre\Startup_ProjectOne\LP\LandingPage_CashChego\node_modules\@eslint\config-array\dist\esm\std__path\posix.js" target="source">node_modules\@eslint\config-array\dist\esm\std__path\posix.js</a></div></div>
+<div class="datagrid-item"><div class="datagrid-title">Vulnerable Line(s)</div><div class="datagrid-content"><font class="important">158</font></div></div>
+</div>
+<br>
+<div class="mb-2">
+</div>
+<h2>Description</h2><p>It is recommended to avoid hardcoded URIs since its bad for portability across operating systems, testing, among other reasons.
+</p>
+<h2>Solution</h2><p>Consider replacing the URI with a customizable property. Example: settings.getProperty("myApp.logFile")
+</p>
+<h2>Vulnerable Code</h2><p>The following lines may need to be patched: <br>[Line 158]:  * assertEquals(dirname(&quot;/home/user/Documents/&quot;), &quot;/home/user&quot;);<br></p>
+<br><br><font class="field"><b>Additional Instances:</b></font><br>
+<br>Similar instances of this vulnerability were identified within this file, as shown below.<br>
+<table class="tblist">
+<tr>
+<td><b>Affected Line(s)</b></td>
+<td><b>Vulnerable Code</b></td>
+<td><b>Additional Details</b></td>
+</tr>
+<tr>
+<td>159</td>
+<td>[159]:  * assertEquals(dirname(&quot;/home/user/Documents/image.png&quot;), &quot;/home/user/Documents&quot;);<br></td>
+<td><small>
+Check ID: C-1603658860-2814<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-12402b80f894eca69579eaada6b2f245
+</small></td>
+</tr>
+<tr>
+<td>349</td>
+<td>[349]:  * assertEquals(fromFileUrl(new URL(&quot;file:///home/foo&quot;)), &quot;/home/foo&quot;);<br></td>
+<td><small>
+Check ID: C-1603658860-2814<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-489372949b79aca422dcefb204345020
+</small></td>
+</tr>
+<tr>
+<td>549</td>
+<td>[549]:  *   dir: &quot;/home/user&quot;,<br></td>
+<td><small>
+Check ID: C-1603658860-2814<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-ef4289ea8c3a16cf59537af0f3b2e238
+</small></td>
+</tr>
+<tr>
+<td>839</td>
+<td>[839]:  * assertEquals(toNamespacedPath(&quot;/home/foo&quot;), &quot;/home/foo&quot;);<br></td>
+<td><small>
+Check ID: C-1603658860-2814<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-532efea21ac39c4c03844039a3c960c0
+</small></td>
+</tr>
+<tr>
+<td>94</td>
+<td>[94]:  * assertEquals(basename(&quot;/home/user/Documents/&quot;), &quot;Documents&quot;);<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-57810bd9853928e757161d623869fa18
+</small></td>
+</tr>
+<tr>
+<td>95</td>
+<td>[95]:  * assertEquals(basename(&quot;/home/user/Documents/image.png&quot;), &quot;image.png&quot;);<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-e72382d43905d78e24eba803b1ce88b8
+</small></td>
+</tr>
+<tr>
+<td>96</td>
+<td>[96]:  * assertEquals(basename(&quot;/home/user/Documents/image.png&quot;, &quot;.png&quot;), &quot;image&quot;);<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-bc316db5c63195778e92474dde7e2732
+</small></td>
+</tr>
+<tr>
+<td>158</td>
+<td>[158]:  * assertEquals(dirname(&quot;/home/user/Documents/&quot;), &quot;/home/user&quot;);<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-6ae086ae93eab018ef0ac848508db269
+</small></td>
+</tr>
+<tr>
+<td>159</td>
+<td>[159]:  * assertEquals(dirname(&quot;/home/user/Documents/image.png&quot;), &quot;/home/user/Documents&quot;);<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-9ac079e9303899c3bbd1397b4451b56c
+</small></td>
+</tr>
+<tr>
+<td>216</td>
+<td>[216]:  * assertEquals(extname(&quot;/home/user/Documents/file.ts&quot;), &quot;.ts&quot;);<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-05cf25155914d2a301f193dd4d34a619
+</small></td>
+</tr>
+<tr>
+<td>217</td>
+<td>[217]:  * assertEquals(extname(&quot;/home/user/Documents/&quot;), &quot;&quot;);<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-b787f4be749900b1a2ef9c8fcf114da1
+</small></td>
+</tr>
+<tr>
+<td>218</td>
+<td>[218]:  * assertEquals(extname(&quot;/home/user/Documents/image.png&quot;), &quot;.png&quot;);<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-7efec3cde31ed572b1e9225ef7a967cc
+</small></td>
+</tr>
+<tr>
+<td>369</td>
+<td>[369]:  * assert(isAbsolute(&quot;/home/user/Documents/&quot;));<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-9afa8fecdcc56c33cdb0bc54806be930
+</small></td>
+</tr>
+<tr>
+<td>546</td>
+<td>[546]:  * const path = parse(&quot;/home/user/file.txt&quot;);<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-9861f3080eb37234cb74c8cdd5dbbc7a
+</small></td>
+</tr>
+<tr>
+<td>814</td>
+<td>[814]:  * assertEquals(toFileUrl(&quot;/home/foo&quot;), new URL(&quot;file:///home/foo&quot;));<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-b799f3f8cb9cf2ed43397c5c8cafeabf
+</small></td>
+</tr>
+<tr>
+<td>815</td>
+<td>[815]:  * assertEquals(toFileUrl(&quot;/home/foo bar&quot;), new URL(&quot;file:///home/foo%20bar&quot;));<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-6845f2a039300b46c303b252f16246de
+</small></td>
+</tr>
+<tr>
+<td>839</td>
+<td>[839]:  * assertEquals(toNamespacedPath(&quot;/home/foo&quot;), &quot;/home/foo&quot;);<br></td>
+<td><small>
+Check ID: C-1603658859-7525<br>
+Ignore ID: vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-8bb395d9af2b9d8c7412aaad3914d668
+</small></td>
+</tr>
+</table>
+</div>
+<br>
+<div class="card-footer">
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">CVSS3 Score <a href="https://www.first.org/cvss/specification-document" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#3D80E2">0,0 NONE</font> <div class="vuln-cvss">(AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">CVSS2 Score <a href="https://www.first.org/cvss/v2/guide" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#D0D000">0,0 LOW</font> <div class="vuln-cvss">(AV:N/AC:L/Au:N/C:N/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">Check ID</div><div class="datagrid-content">C-1603658860-2814</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Track ID</div><div class="datagrid-content">174436581016880-1-7709</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Ignore ID</div><div class="datagrid-content">vuln:v2:sast-/node_modules/@eslint/config-array/dist/esm/std__path/posix.js-hcuri-2039fe581285b8f958314a9364ec51af</div></div>
+</div>
+</div>
+</div><br><br>
+</div>
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Additional Session Details</h3>
+</div>
+<div class="card-body">
+<dl class="row sparrow">
+<dt class="col-5">Session Name:</dt>
+<dd class="col-7">174436581016880</dd>
+<dt class="col-5">Incremental Scan:</dt>
+<dd class="col-7">No</dd>
+<dt class="col-5">Launcher:</dt>
+<dd class="col-7">Syhunt Code</dd>
+</dl>
+</div>
+</div>
+<br>
+<footer class="footer footer-transparent">
+<div class="container-xl">
+<font class="desc">This scan was executed by Syhunt <b>7.0.10.3</b></font>
+</div>
+</footer>
+</div>
+<script src="https://www.syhunt.net/static/reportv3/libs/list.js/dist/list.min.js" defer></script>
+<script src="https://www.syhunt.net/static/reportv3/js/tabler.min.js" defer></script>
+</body>
+<!--
+Session=174436581016880
+Hosts=127.0.0.1
+Ports=80
+Server=
+Date=04/11/2025 10:03:30
+Rule=Application Code Scan
+Found=1
+-->
+</html>

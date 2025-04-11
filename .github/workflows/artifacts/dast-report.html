@@ -1,0 +1,570 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Syhunt Scan Report</title>
+<link href="https://www.syhunt.net/static/reportv3/css/tabler.min.css" rel="stylesheet"/>
+<link href="https://www.syhunt.net/static/reportv3/css/tabler-flags.min.css" rel="stylesheet"/>
+<link href="https://www.syhunt.net/static/reportv3/css/tabler-payments.min.css" rel="stylesheet"/>
+<link href="https://www.syhunt.net/static/reportv3/css/tabler-vendors.min.css" rel="stylesheet"/>
+<link href="https://www.syhunt.net/static/reportv3/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<link href="https://www.syhunt.net/static/reportv3/fonts/feather2.css" rel="stylesheet" >
+<style>
+body { margin:0; }
+hr { border:0; color: #808080; background-color: #808080; height:1px; }
+
+a:link { color: #cb2b4a; }
+a:visited { color: #cc9999; }
+a:active { color: #cb2b4a;}
+a:hover { color: #cb2b4a;}
+
+.fnt_passed { color: #a5d233; font-weight:bold; }
+.fnt_failed { color: #cb2b4a; font-weight:bold; }
+.chart_left { width:50%;float:left; }
+.chart_right { width:50%;float:left; }
+.gi_left { width:80%;float:left;border-bottom:solid 1px white;}
+.gi_right { width:20%;float:left;border-bottom:solid 1px white; }
+.gi_column { background-color:#444444; color: white;}
+.gi_title { background-color:#e2e2e5; }
+.gi_passed { background-color:#a5d233; color:white; font-weight:bold; }
+.gi_failed { background-color:#cb2b4a; color:white; }
+.field { color:#3d424c }
+.important { background-color:#ffffaa;}
+.source { background-color:#e2e2e5; border: solid 1px #808080; padding:10px; overflow: auto;}
+.desc { color:black }
+.vuln_risk { border: solid 1px #808080; width:100px; height:15px; float:right;}
+.session_details { background-color:#e2e2e5; }
+.footer { background-color:#c7c7ff; }
+.notes { background-color:#ffffaa; }
+.host_title { background-color:#808080; color: white; font-weight:bold; }
+.scorebig { width:150px; color:white; }
+
+.tblist { border-collapse: collapse; border: 1px solid #808080; }
+.tblist thead, tfoot { background-color: #3d424c; color: white; }
+.tblist td, th { border: 1px solid rgb(190, 190, 190); padding: 5px 10px; text-align: center; }
+.tds_excellent { background-color: #006b3a; color:white; }
+.tds_good { background-color: #3bbf50; }
+.tds_fair { background-color: #ddcb00; }
+.tds_poor { background-color: #d98700; }
+.tds_verypoor { background-color: #fb5e25; }
+.tds_comingsoon { background-color: silver; }
+.tdvulncount { text-align: center; width:23%;font-size:260%;padding:10px; }
+.tdvulncountsep { width:6px }
+.tdvulncountsub { width:23%;font-size:130%;padding:10px; text-align: center; }
+
+#repcontent { padding:12px; width:100%;} 
+.roundrect { -moz-border-radius:10px; border-radius: 10px; padding:10px; }
+.ribbon {font-size: 140%;min-width:140px;padding:10px;font-weight:normal;}
+.vuln-title {font-size: 200%;}
+.report-title { color: #b8bbc1; float:right;padding-top:17px;padding-right:10px;}
+.section-title {font-size: 150%;}
+.vuln-cvss {font-size: 80%; color:silver}
+.bg-vuln-count { width:80px; }
+.syhunt-logo { min-width:229px;min-height:62px; }
+.keep-together { page-break-inside: avoid; }
+.break-before { page-break-before: always; }
+.break-after { page-break-after: always; }
+
+@media all and (min-width:0px) and (max-width: 568px) { .ribbon {margin-top:53px;} }
+
+@media print {
+ .noprint { display:none; }
+ #repcontent { width:100%;}
+}
+</style>
+</head>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<body>
+<div class="page">
+<header class="navbar navbar-expand-md navbar-dark">
+<div class="container-xl">
+<h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+<img src="https://www.syhunt.net/static/report/syhunt_logo_dark.png" class="navbar-brand-image syhunt-logo">
+<h2>Syhunt Scan Report</h2>
+</h1>
+</div>
+</header>
+<div id="repcontent">
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Scan Summary</h3>
+</div>
+<div class="card-body">
+<dl class="row sparrow">
+<dt class="col-5"><i class="fe fe-calendar"></i>&nbsp;Date:</dt>
+<dd class="col-7">Apr 11, 2025 10:12:41</dd>
+<dt class="col-5"><i class="fe fe-link"></i>&nbsp;Target URL:</dt>
+<dd class="col-7"><a href="https://lp-cashchego.vercel.app/" target="_out">https://lp-cashchego.vercel.app/</a></dd>
+<dt class="col-5"><i class="fe fe-info"></i>&nbsp;Status:</dt>
+<dd class="col-7"><span class="badge bg-success-lt">Completed</span></dd>
+<dt class="col-5"><i class="fe fe-clock"></i>&nbsp;Duration:</dt>
+<dd class="col-7">00:00:33</dd>
+<dt class="col-5"><i class="fe fe-crosshair"></i>&nbsp;Hunt Method:</dt>
+<dd class="col-7">Web Application Scan</dd>
+<dt class="col-5"><i class="fe fe-user"></i>&nbsp;License:</dt>
+<dd class="col-7">Community Edition</dd>
+<dt class="col-5"><i class="fe fe-file-text"></i>&nbsp;Report Template:</dt>
+<dd class="col-7">Standard </dd>
+</dl>
+</div>
+<div class="card-alert alert alert-success mb-0"><i class="fe fe-check-circle"></i>&nbsp;<span class="badge bg-success-lt">Syhunt is up-to-date.</span></div>
+</div>
+<br>
+<div class="card">
+<div class="card-body">
+<font class="fnt_failed">A total of 6 vulnerabilities were identified, as shown below.</font>
+</div>
+</div>
+<br>
+<div class="row row-cards">
+<div class="col-sm-3">
+<div class="card">
+<div class="card-body text-center">
+<div class="h2">High</div>
+<div class="display-3 font-weight-bold mb-3">0</div>
+<div class="progress progress-sm">
+<div class="progress-bar bg-red" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="card">
+<div class="card-body text-center">
+<div class="h2">Medium</div>
+<div class="display-3 font-weight-bold mb-3">0</div>
+<div class="progress progress-sm">
+<div class="progress-bar bg-orange" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="card">
+<div class="card-body text-center">
+<div class="h2">Low</div>
+<div class="display-3 font-weight-bold mb-3">4</div>
+<div class="progress progress-sm">
+<div class="progress-bar bg-yellow" style="width: 67%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="card">
+<div class="card-body text-center">
+<div class="h2">Info</div>
+<div class="display-3 font-weight-bold mb-3">2</div>
+<div class="progress progress-sm">
+<div class="progress-bar bg-info" style="width: 33%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'Risk');
+data.addColumn('number', 'Total');
+data.addRows([
+['High',    0],
+['Medium',      0],
+['Low',  4],
+['Info', 2],
+]);
+var options = {
+width: 300, height: 240,
+title: "Vulnerabilities: 6",
+colors: ["#D00000","#D07C00","#D0D000","#3D80E2"]
+};
+
+var chart = new google.visualization.PieChart(document.getElementById("vulns_piechart_div"));
+chart.draw(data, options);
+}
+</script>
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+var data = new google.visualization.DataTable();
+data.addColumn("string", "Risk");
+data.addColumn("number", "High");
+data.addColumn("number", "Medium");
+data.addColumn("number", "Low");
+data.addColumn("number", "Info");
+data.addRows([
+["", 0,0,4,2],
+]);
+var options = {
+width: 400, height: 240,
+//title: "Vulnerabilities",
+colors: ["#D00000","#D07C00","#D0D000","#3D80E2"]
+};
+var chart = new google.visualization.ColumnChart(document.getElementById("vulns_colchart_div"));
+chart.draw(data, options);
+}
+</script>
+<div class="row row-cards">
+<div class="col-lg-6 col-xl-4">
+<div class="card"><div class="card-body"><div id="vulns_piechart_div"></div></div></div>
+</div>
+<div class="col-lg-6 col-xl-4">
+<div class="card"><div class="card-body"><div id="vulns_colchart_div"></div></div></div>
+</div>
+</div><br>
+<a name="host_1">&nbsp;</a>
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Additional Target Information</h3>
+</div>
+<div class="card-body">
+<dl class="row">
+<dt class="col-5">Server:</dt>
+<dd class="col-7">Vercel</dd>
+<dt class="col-5">OS Type:</dt>
+<dd class="col-7">Undetermined</dd>
+<dt class="col-5">Languages:</dt>
+<dd class="col-7">JS/HTML</dd>
+</dl>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<dl class="row">
+<dt class="col-5">IP Address:</dt>
+<dd class="col-7">lp-cashchego.vercel.app</dd>
+<dt class="col-5">Host Name:</dt>
+<dd class="col-7">lp-cashchego.vercel.app</dd>
+<dt class="col-5">IP Geolocation:</dt>
+<dd class="col-7"><a href="http://www.hostip.info" target="hostip"></a></dd>
+</dl>
+</div>
+</div>
+
+<br>
+<h1>Vulnerabilities</h1>
+<div class="progress progress-separated mb-3">
+<div class="progress-bar bg-red" role="progressbar" style="width: 0%" aria-label="High"></div>
+<div class="progress-bar bg-orange" role="progressbar" style="width: 0%" aria-label="Medium"></div>
+<div class="progress-bar bg-yellow" role="progressbar" style="width: 67%" aria-label="Low"></div>
+<div class="progress-bar bg-info" role="progressbar" style="width: 33%" aria-label="Info"></div>
+</div>
+<div class="row row-cards">
+<div class="col-md-6 col-xl-3">
+<div class="card card-sm">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col-auto">
+<span class="bg-red bg-vuln-count text-white avatar"><h1>0</h1></span>
+</div>
+<div class="col">
+<div class="font-weight-medium"><h3>High</h3></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xl-3">
+<div class="card card-sm">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col-auto">
+<span class="bg-orange bg-vuln-count text-white avatar"><h1>0</h1></span>
+</div>
+<div class="col">
+<div class="font-weight-medium"><h3>Medium</h3></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xl-3">
+<div class="card card-sm">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col-auto">
+<span class="bg-yellow bg-vuln-count text-white avatar"><h1>4</h1></span>
+</div>
+<div class="col">
+<div class="font-weight-medium"><h3>Low</h3></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xl-3">
+<div class="card card-sm">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col-auto">
+<span class="bg-info bg-vuln-count text-white avatar"><h1>2</h1></span>
+</div>
+<div class="col">
+<div class="font-weight-medium"><h3>Info</h3></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<div class="card break-after">
+<div class="card-body">
+<div id="table-default" class="table-responsive">
+<table class="table">
+<thead>
+<tr>
+<th><button class="table-sort" data-sort="sort-down"></button></th>
+<th><button class="table-sort" data-sort="sort-name">Vulnerability Name</button></th>
+<th><button class="table-sort" data-sort="sort-risk">Risk</button></th>
+</tr>
+</thead>
+<tbody class="table-tbody">
+<tr><td class="sort-down"><a href="#vuln_4170706C69636174696F6E56756C6E202835292E6A726D"><i class="fe fe-chevron-down"></i> View</a></td><td class="sort-name">Missing Clickjacking Protection Header</td><td class="sort-risk">Low</td></tr>
+<tr><td class="sort-down"><a href="#vuln_4170706C69636174696F6E56756C6E202834292E6A726D"><i class="fe fe-chevron-down"></i> View</a></td><td class="sort-name">Missing Content Sniffing XSS Protection</td><td class="sort-risk">Low</td></tr>
+<tr><td class="sort-down"><a href="#vuln_4170706C69636174696F6E56756C6E202833292E6A726D"><i class="fe fe-chevron-down"></i> View</a></td><td class="sort-name">Missing Certificate Transparency Header</td><td class="sort-risk">Low</td></tr>
+<tr><td class="sort-down"><a href="#vuln_4170706C69636174696F6E56756C6E202832292E6A726D"><i class="fe fe-chevron-down"></i> View</a></td><td class="sort-name">Weak CORS Policy</td><td class="sort-risk">Low</td></tr>
+<tr><td class="sort-down"><a href="#vuln_4170706C69636174696F6E56756C6E2E6A726D"><i class="fe fe-chevron-down"></i> View</a></td><td class="sort-name">Content Security Policy (CSP) Not Enabled</td><td class="sort-risk">Info</td></tr>
+<tr><td class="sort-down"><a href="#vuln_4170706C69636174696F6E56756C6E202836292E6A726D"><i class="fe fe-chevron-down"></i> View</a></td><td class="sort-name">TLS 1.3 Protocol Disabled</td><td class="sort-risk">Info</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() { 
+const list = new List('table-default', {
+sortClass: 'table-sort',
+listClass: 'table-tbody',
+valueNames: [ 'sort-down', 'sort-name', 'sort-risk'] 
+});
+})
+</script>
+<a name="vuln_4170706C69636174696F6E56756C6E202835292E6A726D">&nbsp;</a>
+<div class="card">
+<div class="card-body">
+<div class="ribbon bg-yellow">LOW</div>
+<div class="card-status-top bg-yellow"></div>
+<h1 class="card-title vuln-title">Missing Clickjacking Protection Header</h1>
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">Location</div><div class="datagrid-content"><i class="fe fe-navigation text-red"></i>&nbsp; <a href="https://lp-cashchego.vercel.app/" target="loc">https://lp-cashchego.vercel.app/</a></div></div>
+</div>
+<br>
+<div class="mb-2">
+</div>
+<h2>Description</h2><p>The server didn't return a X-Frame-Options header as part of its HTTP response, which enables clickjacking attacks against it since its content is allowed to be embedded into other sites.
+</p>
+<h2>Solution</h2><p>Enable the special header as explained at: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options" target="external">X-Frame-Options</a> (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options). 
+</p>
+<br><br><font class="field"><b>Request:</b></font><br>
+<pre><code>GET / HTTP/1.1<br>Host: lp-cashchego.vercel.app<br>Keep-Alive: 300<br>Connection: keep-alive<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0<br>Accept-Encoding: gzip<br><br></code></pre>
+</div>
+<br>
+<div class="card-footer">
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">References (CWE)</div><div class="datagrid-content"><a href="http://cwe.mitre.org/data/definitions/693" target="external">693</a></div></div>
+<div class="datagrid-item"><div class="datagrid-title">CVSS3 Score <a href="https://www.first.org/cvss/specification-document" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#D07C00">5,3 MEDIUM</font> <div class="vuln-cvss">(AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">CVSS2 Score <a href="https://www.first.org/cvss/v2/guide" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#D07C00">5,0 MEDIUM</font> <div class="vuln-cvss">(AV:N/AC:L/Au:N/C:P/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">Check ID</div><div class="datagrid-content">DH-1603664049-2933</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Track ID</div><div class="datagrid-content">174436636116880-5-8995</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Ignore ID</div><div class="datagrid-content">vuln:v2:dast-/-hdcjp-1215b9a855df527278d1e608a416a139</div></div>
+</div>
+</div>
+</div><br><br>
+<a name="vuln_4170706C69636174696F6E56756C6E202834292E6A726D">&nbsp;</a>
+<div class="card">
+<div class="card-body">
+<div class="ribbon bg-yellow">LOW</div>
+<div class="card-status-top bg-yellow"></div>
+<h1 class="card-title vuln-title">Missing Content Sniffing XSS Protection</h1>
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">Location</div><div class="datagrid-content"><i class="fe fe-navigation text-red"></i>&nbsp; <a href="https://lp-cashchego.vercel.app/" target="loc">https://lp-cashchego.vercel.app/</a></div></div>
+</div>
+<br>
+<div class="mb-2">
+</div>
+<h2>Description</h2><p>The server didn't return a X-Content-Type-Options header as part of its HTTP response, which enables content sniffing XSS attacks.
+</p>
+<h2>Solution</h2><p>Make sure you send the X-Content-Type-Options header with "nosniff" as value.
+</p>
+<br><br><font class="field"><b>Request:</b></font><br>
+<pre><code>GET / HTTP/1.1<br>Host: lp-cashchego.vercel.app<br>Keep-Alive: 300<br>Connection: keep-alive<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0<br>Accept-Encoding: gzip<br><br></code></pre>
+</div>
+<br>
+<div class="card-footer">
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">References (CWE)</div><div class="datagrid-content"><a href="http://cwe.mitre.org/data/definitions/693" target="external">693</a></div></div>
+<div class="datagrid-item"><div class="datagrid-title">CVSS3 Score <a href="https://www.first.org/cvss/specification-document" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#D07C00">5,3 MEDIUM</font> <div class="vuln-cvss">(AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">CVSS2 Score <a href="https://www.first.org/cvss/v2/guide" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#D07C00">5,0 MEDIUM</font> <div class="vuln-cvss">(AV:N/AC:L/Au:N/C:P/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">Check ID</div><div class="datagrid-content">DH-1603664036-0000</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Track ID</div><div class="datagrid-content">174436636116880-4-6044</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Ignore ID</div><div class="datagrid-content">vuln:v2:dast-/-hdcsp-3a366b6bee4f4d6cd1f417aaba848427</div></div>
+</div>
+</div>
+</div><br><br>
+<a name="vuln_4170706C69636174696F6E56756C6E202833292E6A726D">&nbsp;</a>
+<div class="card">
+<div class="card-body">
+<div class="ribbon bg-yellow">LOW</div>
+<div class="card-status-top bg-yellow"></div>
+<h1 class="card-title vuln-title">Missing Certificate Transparency Header</h1>
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">Location</div><div class="datagrid-content"><i class="fe fe-navigation text-red"></i>&nbsp; <a href="https://lp-cashchego.vercel.app/" target="loc">https://lp-cashchego.vercel.app/</a></div></div>
+</div>
+<br>
+<div class="mb-2">
+</div>
+<h2>Description</h2><p>The server didn't return a Expect-CT header as part of its HTTPS response, which should be enabled to prevent the use of misissued certificates.
+</p>
+<h2>Solution</h2><p>Enable the special header as explained at: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect-CT" target="external">Expect-CT</a> (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect-CT)
+</p>
+<br><br><font class="field"><b>Request:</b></font><br>
+<pre><code>GET / HTTP/1.1<br>Host: lp-cashchego.vercel.app<br>Keep-Alive: 300<br>Connection: keep-alive<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0<br>Accept-Encoding: gzip<br><br></code></pre>
+</div>
+<br>
+<div class="card-footer">
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">References (CWE)</div><div class="datagrid-content"><a href="http://cwe.mitre.org/data/definitions/693" target="external">693</a></div></div>
+<div class="datagrid-item"><div class="datagrid-title">CVSS3 Score <a href="https://www.first.org/cvss/specification-document" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#D07C00">5,3 MEDIUM</font> <div class="vuln-cvss">(AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">CVSS2 Score <a href="https://www.first.org/cvss/v2/guide" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#D07C00">5,0 MEDIUM</font> <div class="vuln-cvss">(AV:N/AC:L/Au:N/C:P/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">Check ID</div><div class="datagrid-content">DH-1603664017-5616</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Track ID</div><div class="datagrid-content">174436636116880-3-7398</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Ignore ID</div><div class="datagrid-content">vuln:v2:dast-/-hdect-c1b1863119664280ede32e150cb87374</div></div>
+</div>
+</div>
+</div><br><br>
+<a name="vuln_4170706C69636174696F6E56756C6E202832292E6A726D">&nbsp;</a>
+<div class="card">
+<div class="card-body">
+<div class="ribbon bg-yellow">LOW</div>
+<div class="card-status-top bg-yellow"></div>
+<h1 class="card-title vuln-title">Weak CORS Policy</h1>
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">Location</div><div class="datagrid-content"><i class="fe fe-navigation text-red"></i>&nbsp; <a href="https://lp-cashchego.vercel.app/" target="loc">https://lp-cashchego.vercel.app/</a></div></div>
+</div>
+<br>
+<div class="mb-2">
+</div>
+<h2>Description</h2><p>The server is returning a Access-Control-Allow-Origin header with a wildcard (*) value, which may allow malicious JavaScript to be loaded and executed from external domains.
+</p>
+<h2>Solution</h2><p>Remove the wildcard and specify the domains where the trusted external JavaScript resources are located.
+</p>
+<br><br><font class="field"><b>Request:</b></font><br>
+<pre><code>GET / HTTP/1.1<br>Host: lp-cashchego.vercel.app<br>Keep-Alive: 300<br>Connection: keep-alive<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0<br>Accept-Encoding: gzip<br><br></code></pre>
+</div>
+<br>
+<div class="card-footer">
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">References (CWE)</div><div class="datagrid-content"><a href="http://cwe.mitre.org/data/definitions/942" target="external">942</a></div></div>
+<div class="datagrid-item"><div class="datagrid-title">CVSS3 Score <a href="https://www.first.org/cvss/specification-document" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#D07C00">5,3 MEDIUM</font> <div class="vuln-cvss">(AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">CVSS2 Score <a href="https://www.first.org/cvss/v2/guide" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#D07C00">5,0 MEDIUM</font> <div class="vuln-cvss">(AV:N/AC:L/Au:N/C:P/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">Check ID</div><div class="datagrid-content">DH-1603663944-3631</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Track ID</div><div class="datagrid-content">174436636116880-2-1461</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Ignore ID</div><div class="datagrid-content">vuln:v2:dast-/-hdacao-9bd21c82615faccf40526d1bf1a1c78f</div></div>
+</div>
+</div>
+</div><br><br>
+<a name="vuln_4170706C69636174696F6E56756C6E2E6A726D">&nbsp;</a>
+<div class="card">
+<div class="card-body">
+<div class="ribbon bg-info">INFO</div>
+<div class="card-status-top bg-info"></div>
+<h1 class="card-title vuln-title">Content Security Policy (CSP) Not Enabled</h1>
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">Location</div><div class="datagrid-content"><i class="fe fe-navigation text-red"></i>&nbsp; <a href="https://lp-cashchego.vercel.app/" target="loc">https://lp-cashchego.vercel.app/</a></div></div>
+</div>
+<br>
+<div class="mb-2">
+</div>
+<h2>Description</h2><p>The server didn't return a Content-Security-Policy (CSP) header as part of its HTTP response. By not implementing a CSP, you miss an extra layer of security against attacks such as cross-site scripting (XSS), clickjacking and other issues.
+</p>
+<h2>Solution</h2><p>Send the Content-Security-Policy header with strict policies and whitelist. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+</p>
+<br><br><font class="field"><b>Request:</b></font><br>
+<pre><code>GET / HTTP/1.1<br>Host: lp-cashchego.vercel.app<br>Keep-Alive: 300<br>Connection: keep-alive<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0<br>Accept-Encoding: gzip<br><br></code></pre>
+</div>
+<br>
+<div class="card-footer">
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">CVSS3 Score <a href="https://www.first.org/cvss/specification-document" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#3D80E2">0,0 NONE</font> <div class="vuln-cvss">(AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">CVSS2 Score <a href="https://www.first.org/cvss/v2/guide" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#D0D000">0,0 LOW</font> <div class="vuln-cvss">(AV:N/AC:L/Au:N/C:N/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">Check ID</div><div class="datagrid-content">DH-1603663754-3480</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Track ID</div><div class="datagrid-content">174436636116880-1-3791</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Ignore ID</div><div class="datagrid-content">vuln:v2:dast-/-hdcspm-3c64629f66811c8d1f8b78c4ba1893f0</div></div>
+</div>
+</div>
+</div><br><br>
+<a name="vuln_4170706C69636174696F6E56756C6E202836292E6A726D">&nbsp;</a>
+<div class="card">
+<div class="card-body">
+<div class="ribbon bg-info">INFO</div>
+<div class="card-status-top bg-info"></div>
+<h1 class="card-title vuln-title">TLS 1.3 Protocol Disabled</h1>
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">Location</div><div class="datagrid-content"><i class="fe fe-navigation text-red"></i>&nbsp; <a href="https://lp-cashchego.vercel.app/" target="loc">https://lp-cashchego.vercel.app/</a></div></div>
+</div>
+<br>
+<div class="mb-2">
+</div>
+<h2>Description</h2><p>The web server has support for TLS 1.3 disabled.
+</p>
+<h2>Solution</h2><p>It is recommended to enable TLS 1.3 to improve both speed and security for Internet users.
+</p>
+</div>
+<br>
+<div class="card-footer">
+<div class="datagrid">
+<div class="datagrid-item"><div class="datagrid-title">CVSS3 Score <a href="https://www.first.org/cvss/specification-document" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#3D80E2">0,0 NONE</font> <div class="vuln-cvss">(AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">CVSS2 Score <a href="https://www.first.org/cvss/v2/guide" target="_out">[?]</a></font></div><div class="datagrid-content"><font color="#D0D000">0,0 LOW</font> <div class="vuln-cvss">(AV:N/AC:L/Au:N/C:N/I:N/A:N)</div></div></div>
+<div class="datagrid-item"><div class="datagrid-title">Check ID</div><div class="datagrid-content">DP-1633899239-3928</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Track ID</div><div class="datagrid-content">174436636116880-6-9109</div></div>
+<div class="datagrid-item"><div class="datagrid-title">Ignore ID</div><div class="datagrid-content">vuln:v2:dast-/-iptls13-6881de74bec09b988905b9d4205a19ff</div></div>
+</div>
+</div>
+</div><br><br>
+</div>
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Additional Session Details</h3>
+</div>
+<div class="card-body">
+<dl class="row sparrow">
+<dt class="col-5">Session Name:</dt>
+<dd class="col-7">174436636116880</dd>
+<dt class="col-5">Incremental Scan:</dt>
+<dd class="col-7">Yes (Auto)</dd>
+<dt class="col-5">Augmented With JNDI Exploit:</dt>
+<dd class="col-7">No</dd>
+<dt class="col-5">Denial-of-Service Tests Enabled:</dt>
+<dd class="col-7">Yes</dd>
+<dt class="col-5">Launcher:</dt>
+<dd class="col-7">Syhunt Hybrid</dd>
+</dl>
+</div>
+</div>
+<br>
+<footer class="footer footer-transparent">
+<div class="container-xl">
+<font class="desc">This scan was executed by Syhunt <b>7.0.10.3</b></font>
+</div>
+</footer>
+</div>
+<script src="https://www.syhunt.net/static/reportv3/libs/list.js/dist/list.min.js" defer></script>
+<script src="https://www.syhunt.net/static/reportv3/js/tabler.min.js" defer></script>
+</body>
+<!--
+Session=174436636116880
+Hosts=lp-cashchego.vercel.app
+Ports=443
+Server=
+Date=04/11/2025 10:12:41
+Rule=Web Application Scan
+Found=6
+-->
+</html>
